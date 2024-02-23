@@ -12,8 +12,6 @@ fi
 FLAVOR_ENV=${1:?\
 $(print_in_red "Missing argument \$1 FLAVOR_ENV dev / stag / prod.")}
 
-source ./tool/shell/logs-env.sh
-
 ./tool/check-line-endings.sh
 
 ./tool/shell/analyze.sh
