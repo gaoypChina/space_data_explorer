@@ -108,6 +108,7 @@ jobs:
         with:
           files: coverage/lcov.info
           name: cicd-${{ matrix.runner }}-${{ matrix.ref }}
+          token: ${{ secrets.CODECOV_TOKEN }}
 
       - run: ./tool/cd.sh "$(./tool/get-flavor-env.sh)"
         if: matrix.ref == 'stable'

@@ -84,5 +84,6 @@ jobs:
         with:
           files: coverage/lcov.info
           name: ci-dispatch-${{ inputs.runner }}-${{ inputs.ref }}
+          token: ${{ secrets.CODECOV_TOKEN }}
 
       - run: ./tool/android/stop-gradle.sh

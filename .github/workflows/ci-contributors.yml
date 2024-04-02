@@ -78,6 +78,7 @@ jobs:
         with:
           files: coverage/lcov.info
           name: ci-contributors-${{ matrix.runner }}-${{ matrix.ref }}
+          token: ${{ secrets.CODECOV_TOKEN }}
 
       - run: ./tool/web/deploy.sh "$(./tool/get-flavor-env.sh)"
         if: matrix.ref == 'stable'
