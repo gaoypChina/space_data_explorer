@@ -19,11 +19,11 @@ jobs:
     continue-on-error: ${{ matrix.experimental }}
     strategy:
       matrix:
-        runner: [ macos-13 ]
+        runner: [ macos-latest ]
         ref: [ stable ]
         experimental: [ false ]
         include:
-          - runner: macos-13
+          - runner: macos-latest
             ref: beta
             experimental: false
 

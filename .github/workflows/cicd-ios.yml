@@ -6,12 +6,11 @@ on:
       runner:
         description: 'Runner OS'
         required: true
-        default: 'macos-13'
+        default: 'macos-latest'
         type: choice
         options:
           - 'macos-latest'
-          - 'macos-13'
-          - 'macos-13-xlarge'
+          - 'macos-latest-xlarge'
       ref:
         description: 'Flutter channel, version or git reference'
         required: true

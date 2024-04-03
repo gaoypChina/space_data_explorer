@@ -13,7 +13,6 @@ on:
           - 'ubuntu-latest'
           - 'macos-latest'
           - 'windows-latest'
-          - 'macos-13'
       ref:
         description: 'Flutter channel, version or git reference'
         required: true
