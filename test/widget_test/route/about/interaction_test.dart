@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hrk_flutter_test_batteries/hrk_flutter_test_batteries.dart';
 
 import 'package:space_data_explorer/route/about/about_route.dart';
-import '../../../src/helper/helper.dart';
 import '../../../src/route/about/about_route.dart';
 
 void main() {
