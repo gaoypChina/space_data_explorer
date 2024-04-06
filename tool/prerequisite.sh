@@ -4,6 +4,16 @@
 
 set -e -o pipefail
 
+if (( BASH_VERSINFO[0] < 5 )); then
+  if [[ $(uname -s) =~ ^"Darwin" ]]; then
+    brew install bash
+  else
+    echo "Please install Bash with version atleast 5"
+    exit 1
+  fi
+  bash --version
+fi
+
 source ./tool/shell/logs-env.sh
 
 check_command_on_path() {
@@ -27,14 +37,7 @@ $(print_in_red "Missing argument \$1 ROLE (--minimal / --contributor / --member)
 ROLE=${1//--}
 : "${ROLE:=minimal}"
 
-if (( BASH_VERSINFO[0] < 5 )); then
-  if [[ $(uname -s) =~ ^"Darwin" ]]; then
-    brew install bash
-  else
-    log_error_with_exit "Please install Bash with version atleast 5"
-  fi
-  bash --version
-fi
+echo "Checking Pre-requisite"
 
 check_command_on_path flutter
 if ! export -p | grep "declare -x FLUTTER_ROOT=" &> /dev/null; then
@@ -276,3 +279,5 @@ if [[ $(uname -s) =~ ^"Darwin" ]]; then
     pod --version
   fi
 fi
+
+print_in_green "Pre-requisite fulfilled"

@@ -45,6 +45,8 @@ jobs:
     steps:
       - run: git config --global core.autocrlf false
         if: runner.os == 'Windows'
+      - run: brew install bash
+        if: runner.os == 'macOS'
 
       # - run: echo '${{ toJSON(github) }}'
 
