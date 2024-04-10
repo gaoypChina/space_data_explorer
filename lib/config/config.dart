@@ -24,7 +24,7 @@ import 'firebase/firebase.dart';
 
 import 'package:hrk_batteries/hrk_batteries.dart'
     hide kReleaseMode, kProfileMode;
-import 'config_non_web.dart' if (dart.library.html) 'config_web.dart'
+import 'config_non_web.dart' if (dart.library.js_interop) 'config_web.dart'
     as platform;
 
 Future<void> configureApp({

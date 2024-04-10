@@ -1,24 +1,21 @@
-// ignore_for_file: avoid_web_libraries_in_flutter
-
-import 'dart:html' as html;
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hrk_logging/hrk_logging.dart';
 import 'package:integration_test/integration_test.dart';
+import 'package:web/web.dart' as web;
 
 import '../globals.dart';
 
 void historyBack() {
-  html.window.history.back();
+  web.window.history.back();
 }
 
 void historyForward() {
-  html.window.history.forward();
+  web.window.history.forward();
 }
 
 void resetNavigationHistoryState() {
-  final html.History history = html.window.history;
-  Map? state = history.state;
+  final web.History history = web.window.history;
+  Map? state = history.state as Map?;
   if (state != null) {
     // Not working
     // history.go(-(history.length - 1));
@@ -30,9 +27,9 @@ void resetNavigationHistoryState() {
 }
 
 void logNavigationHistoryState() {
-  final html.History history = html.window.history;
+  final web.History history = web.window.history;
   printLogger.debug('history.length = ${history.length}');
-  Map? state = history.state;
+  Map? state = history.state as Map?;
   printLogger.debug('history.state = $state');
 }
 
@@ -40,8 +37,8 @@ bool expectHistoryLengthAndSerialCount(
   int historyLength,
   int serialCount,
 ) {
-  final html.History history = html.window.history;
-  Map state = history.state;
+  final web.History history = web.window.history;
+  Map state = history.state as Map;
 
   testLogger.finer('history.length = ${history.length}');
   testLogger.finer('state[\'serialCount\'] = ${state['serialCount']}');

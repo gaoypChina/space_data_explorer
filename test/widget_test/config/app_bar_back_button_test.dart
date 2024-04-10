@@ -22,7 +22,7 @@ import '../../src/space_data_explorer_app.dart';
 
 // ignore: directives_ordering
 import '../../src/helper/helper_non_web.dart'
-    if (dart.library.html) '../../src/helper/helper_web.dart' as platform;
+    if (dart.library.js_interop) '../../src/helper/helper_web.dart' as platform;
 
 void main() {
   appBarBackButtonTest();
