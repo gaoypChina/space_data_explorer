@@ -9,14 +9,14 @@ PODS:
   - Firebase/Crashlytics (10.22.0):
     - Firebase/CoreOnly
     - FirebaseCrashlytics (~> 10.22.0)
-  - firebase_analytics (10.10.0):
+  - firebase_analytics (10.10.1):
     - Firebase/Analytics (= 10.22.0)
     - firebase_core
     - Flutter
-  - firebase_core (2.28.0):
+  - firebase_core (2.29.0):
     - Firebase/CoreOnly (= 10.22.0)
     - Flutter
-  - firebase_crashlytics (3.5.0):
+  - firebase_crashlytics (3.5.1):
     - Firebase/Crashlytics (= 10.22.0)
     - firebase_core
     - Flutter
@@ -139,7 +139,7 @@ PODS:
     - PromisesObjC (= 2.4.0)
   - Sentry/HybridSDK (8.21.0):
     - SentryPrivate (= 8.21.0)
-  - sentry_flutter (0.0.1):
+  - sentry_flutter (7.19.0):
     - Flutter
     - FlutterMacOS
     - Sentry/HybridSDK (= 8.21.0)
@@ -202,9 +202,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Firebase: 797fd7297b7e1be954432743a0b3f90038e45a71
-  firebase_analytics: 3170fe7d05cf0cda05b06f6255d2e6fcf432796e
-  firebase_core: d955499180c3c8ef355adf46b8752c4c01d09e0a
-  firebase_crashlytics: 6ddcbdb33350f98b8e3becef289b98bcc00f0b5e
+  firebase_analytics: 8e6cecb9b9541db49ac40a46eec7c0f519de7252
+  firebase_core: aaadbddb3cb2ee3792b9804f9dbb63e5f6f7b55c
+  firebase_crashlytics: 4271b5bb77f6169ac7c2a9d62ad0e6aa5f84c2fe
   FirebaseAnalytics: 8d0ff929c63b7f72260f332b86ccf569776b75d3
   FirebaseCore: 0326ec9b05fbed8f8716cddbf0e36894a13837f7
   FirebaseCoreExtension: cb88851781a24e031d1b58e0bd01eb1f46b044b5
@@ -217,14 +217,14 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: ccefe3eac9b0aa27f96066809fb1a7fe4b462626
   GoogleDataTransport: 6c09b596d841063d76d4288cc2d2f42cc36e1e2a
   GoogleUtilities: d053d902a8edaa9904e1bd00c37535385b8ed152
-  integration_test: 13825b8a9334a850581300559b8839134b124670
+  integration_test: ce0a3ffa1de96d1a89ca0ac26fca7ea18a749ef4
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
-  package_info_plus: 115f4ad11e0698c8c1c5d8a689390df880f47e85
+  package_info_plus: 58f0028419748fad15bf008b270aaa8e54380b1c
   path_provider_foundation: 3784922295ac71e43754bd15e0653ccfd36a147c
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
   Sentry: ebc12276bd17613a114ab359074096b6b3725203
-  sentry_flutter: dff1df05dc39c83d04f9330b36360fc374574c5e
+  sentry_flutter: 88ebea3f595b0bc16acc5bedacafe6d60c12dcd5
   SentryPrivate: d651efb234cf385ec9a1cdd3eff94b5e78a0e0fe
   url_launcher_ios: 6116280ddcfe98ab8820085d8d76ae7449447586
 

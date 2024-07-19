@@ -19,17 +19,17 @@ if (( $(git status -s pubspec.yaml | wc -l) > 0 )); then
 fi
 
 AVD_NAMES=(
-  "Pixel_7_API_34"
-  # "Nexus_7_API_34"
-  # "Nexus_10_API_34"
+  "Pixel_8_API_35"
+  # "Nexus_7_API_35"
+  # "Nexus_10_API_35"
 )
 DEVICE_NAMES=(
-  "pixel_7"
+  "pixel_8"
   # "Nexus 7 2013"
   # "Nexus 10"
 )
 SKIN_NAMES=(
-  "pixel_7"
+  "pixel_8"
   # "nexus_7_2013"
   # "nexus_10"
 )

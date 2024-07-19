@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 # Arguments:
-#   $1 AVD_NAME like Pixel_7_API_34 or Nexus_7_API_34
-#   $2 SYSTEM_IMAGE_PACKAGE_PATH like "system-images;android-34;google_apis;x86_64"
-#   $3 DEVICE_NAME like pixel_7 or Nexus 7 2013
-#   $4 SKIN_NAME like pixel_7 or nexus_7_2013
+#   $1 AVD_NAME like Pixel_Fold_API_35 or Nexus_7_API_35
+#   $2 SYSTEM_IMAGE_PACKAGE_PATH like "system-images;android-35;google_apis;x86_64"
+#   $3 DEVICE_NAME like pixel_fold or Nexus 7 2013
+#   $4 SKIN_NAME like pixel_fold or nexus_7_2013
 
 set -e -o pipefail
 
@@ -16,10 +16,10 @@ else
   SYSTEM_IMAGE_ARCH="x86_64"
 fi
 
-AVD_NAME=${1:-"Pixel_7_API_34"}
-SYSTEM_IMAGE_PACKAGE_PATH=${2:-"system-images;android-34;google_apis;$SYSTEM_IMAGE_ARCH"}
-DEVICE_NAME=${3:-"pixel_7"}
-SKIN_NAME=${4:-"pixel_7"}
+AVD_NAME=${1:-"Pixel_Fold_API_35"}
+SYSTEM_IMAGE_PACKAGE_PATH=${2:-"system-images;android-35;google_apis;$SYSTEM_IMAGE_ARCH"}
+DEVICE_NAME=${3:-"pixel_fold"}
+SKIN_NAME=${4:-"pixel_fold"}
 
 if [[ $(uname -s) =~ ^"MINGW" ]]; then
   SdkManager="sdkmanager.bat"
