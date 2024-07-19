@@ -1,7 +1,6 @@
 {
   "M/d/yy": [
     "en",
-    "en_CA",
     "en_US"
   ],
   "d.M.y": [
@@ -13,19 +12,20 @@
     "hi",
     "mr"
   ],
-  "d/MM/yy": [
-    "en_NZ"
-  ],
   "dd/MM/y": [
     "en_GB",
     "en_IE",
-    "en_MY"
+    "en_MY",
+    "en_NZ"
   ],
   "dd/MM/yy": [
     "en_IN"
   ],
   "d‏/M‏/y": [
     "ar"
+  ],
+  "y-MM-dd": [
+    "en_CA"
   ],
   "y/MM/dd": [
     "en_ZA"
