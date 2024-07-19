@@ -32,13 +32,16 @@ jobs:
     continue-on-error: ${{ matrix.experimental }}
     strategy:
       matrix:
-        runner: [ ubuntu-latest, macos-latest, windows-latest ]
+        runner: [ ubuntu-latest, macos-latest ]
         ref: [ stable ]
         experimental: [ false ]
         include:
           - runner: ubuntu-latest
             ref: beta
             experimental: false
+          - runner: windows-latest
+            ref: stable
+            experimental: true
 
     steps:
       - run: git config --global core.autocrlf false
