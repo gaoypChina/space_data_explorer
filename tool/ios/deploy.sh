@@ -21,34 +21,22 @@ else
   ./tool/ios/upload-ipa.sh "$FLAVOR_ENV"
 fi
 
-FIREBASE_DART_FILE="lib/config/firebase/options/$FLAVOR_ENV.dart"
-# shellcheck disable=SC2086
-FIREBASE_APP_ID=$( \
-  jq -r \
-    '.flutter.platforms.dart."'$FIREBASE_DART_FILE'".configurations.ios' \
-    firebase.json
-)
-
-# EXECUTABLE_NAME="$APP_NAME_KEBAB_CASE-$FLAVOR_ENV-release"
-# WRAPPER_NAME="$APP_NAME_KEBAB_CASE-$FLAVOR_ENV-release.app"
-# DWARF_DSYM_FOLDER_PATH="./build/ios/archive/$EXECUTABLE_NAME.xcarchive/dSYMs"
-# DWARF_DSYM_FILE_NAME="$WRAPPER_NAME.dSYM"
-
 # shellcheck disable=SC1091
 source ./build/ios/build-phases-variables.env
 
-./ios/Pods/FirebaseCrashlytics/upload-symbols \
-  --app-id "$FIREBASE_APP_ID" \
+# Keep this in sync with Build Phase script of 'FlutterFire: "flutterfire upload-crashlytics-symbols"'
+dart pub global run flutterfire_cli:flutterfire upload-crashlytics-symbols \
+  --upload-symbols-script-path "$PODS_ROOT/FirebaseCrashlytics/upload-symbols" \
   --platform ios \
-  "$DWARF_DSYM_FOLDER_PATH/$DWARF_DSYM_FILE_NAME"
-
-# flutterfire upload-crashlytics-symbols \
-#   --upload-symbols-script-path "$PODS_ROOT/FirebaseCrashlytics/upload-symbols" \
-#   --debug-symbols-path "$DWARF_DSYM_FOLDER_PATH/$DWARF_DSYM_FILE_NAME" \
-#   --info-plist-path "$SRCROOT/$BUILT_PRODUCTS_DIR/$INFOPLIST_PATH" \
-#   --platform ios \
-#   --apple-project-path "$SRCROOT" \
-#   --build-configuration "$CONFIGURATION"
+  --apple-project-path "$SRCROOT" \
+  --env-platform-name "$PLATFORM_NAME" \
+  --env-configuration "$CONFIGURATION" \
+  --env-project-dir "$PROJECT_DIR" \
+  --env-built-products-dir "$BUILT_PRODUCTS_DIR" \
+  --env-dwarf-dsym-folder-path "$DWARF_DSYM_FOLDER_PATH" \
+  --env-dwarf-dsym-file-name "$DWARF_DSYM_FILE_NAME" \
+  --env-infoplist-path "$INFOPLIST_PATH" \
+  --build-configuration "$CONFIGURATION"
 
 # shellcheck disable=SC1091
 source ./secrets/sentry/source.sh

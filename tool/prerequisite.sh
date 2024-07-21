@@ -229,9 +229,9 @@ if [[ $ROLE == "contributor" || $ROLE == "member" ]]; then
   fi
 fi
 
-if [[ ! -x $(command -v flutterfire) ]]; then
-  dart pub global activate flutterfire_cli ^0.3.0-dev.18
-  CI=true dart pub global run flutterfire_cli:flutterfire --version
+if ! dart pub global list | grep "flutterfire_cli" &> /dev/null; then
+  dart pub global activate flutterfire_cli
+  dart pub global run flutterfire_cli:flutterfire --version
 fi
 
 if [[ $ROLE == "member" ]]; then

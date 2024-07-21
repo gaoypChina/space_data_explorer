@@ -32,49 +32,41 @@ if (flutterVersionName == null) {
 }
 
 android {
-    namespace 'dev.hrishikesh_kadam.flutter.space_data_explorer'
-    compileSdk flutter.compileSdkVersion
-    ndkVersion flutter.ndkVersion
+    namespace = 'dev.hrishikesh_kadam.flutter.space_data_explorer'
+    compileSdk = flutter.compileSdkVersion
+    ndkVersion = flutter.ndkVersion
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
-
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 
     defaultConfig {
-        applicationId constants.applicationId
+        applicationId = constants.applicationId
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion flutter.minSdkVersion
-        targetSdkVersion flutter.targetSdkVersion
-        multiDexEnabled true
-        versionCode flutterVersionCode.toInteger()
-        versionName flutterVersionName
+        minSdk = flutter.minSdkVersion
+        targetSdk = flutter.targetSdkVersion
+        multiDexEnabled = true
+        versionCode = flutterVersionCode.toInteger()
+        versionName = flutterVersionName
         manifestPlaceholders += [ applicationLabel:constants.appName ]
-        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        testInstrumentationRunner = 'androidx.test.runner.AndroidJUnitRunner'
     }
 
     signingConfigs {
         if (keyPropertiesFile.exists()) {
             prod {
-                storeFile file(keyProperties['prodStoreFile'])
-                storePassword keyProperties['prodStoreAndKeyPassword']
-                keyAlias keyProperties['prodKeyAlias']
-                keyPassword keyProperties['prodStoreAndKeyPassword']
+                storeFile = file(keyProperties['prodStoreFile'])
+                storePassword = keyProperties['prodStoreAndKeyPassword']
+                keyAlias = keyProperties['prodKeyAlias']
+                keyPassword = keyProperties['prodStoreAndKeyPassword']
             }
             nonProd {
-                storeFile file(keyProperties['nonProdStoreFile'])
-                storePassword keyProperties['nonProdStoreAndKeyPassword']
-                keyAlias keyProperties['nonProdKeyAlias']
-                keyPassword keyProperties['nonProdStoreAndKeyPassword']
+                storeFile = file(keyProperties['nonProdStoreFile'])
+                storePassword = keyProperties['nonProdStoreAndKeyPassword']
+                keyAlias = keyProperties['nonProdKeyAlias']
+                keyPassword = keyProperties['nonProdStoreAndKeyPassword']
             }
         }
     }
@@ -82,29 +74,29 @@ android {
     buildTypes {
         debug {
             // applicationIdSuffix '.debug'
-            versionNameSuffix '-debug'
+            versionNameSuffix = '-debug'
             if (keyPropertiesFile.exists()) {
-                signingConfig null
+                signingConfig = null
             } else {
-                signingConfig signingConfigs.debug
+                signingConfig = signingConfigs.debug
             }
         }
         profile {
             // applicationIdSuffix '.profile'
-            versionNameSuffix '-profile'
+            versionNameSuffix = '-profile'
             if (keyPropertiesFile.exists()) {
-                signingConfig null
+                signingConfig = null
             } else {
-                signingConfig signingConfigs.debug
+                signingConfig = signingConfigs.debug
             }
         }
         release {
             // applicationIdSuffix '.release'
-            versionNameSuffix '-release'
+            versionNameSuffix = '-release'
             if (keyPropertiesFile.exists()) {
-                signingConfig null
+                signingConfig = null
             } else {
-                signingConfig signingConfigs.debug
+                signingConfig = signingConfigs.debug
             }
         }
     }
@@ -112,30 +104,30 @@ android {
     flavorDimensions 'env'
     productFlavors {
         dev {
-            dimension 'env'
-            manifestPlaceholders = [ hostName:constants.devHostName ]
-            applicationIdSuffix '.dev'
-            versionNameSuffix '-dev'
+            dimension = 'env'
+            manifestPlaceholders += [ hostName:constants.devHostName ]
+            applicationIdSuffix = '.dev'
+            versionNameSuffix = '-dev'
             if (keyPropertiesFile.exists()) {
-                signingConfig signingConfigs.nonProd
+                signingConfig = signingConfigs.nonProd
             }
         }
         stag {
-            dimension 'env'
-            manifestPlaceholders = [ hostName:constants.stagHostName ]
-            applicationIdSuffix '.stag'
-            versionNameSuffix '-stag'
+            dimension = 'env'
+            manifestPlaceholders += [ hostName:constants.stagHostName ]
+            applicationIdSuffix = '.stag'
+            versionNameSuffix = '-stag'
             if (keyPropertiesFile.exists()) {
-                signingConfig signingConfigs.nonProd
+                signingConfig = signingConfigs.nonProd
             }
         }
         prod {
-            dimension 'env'
-            manifestPlaceholders = [ hostName:constants.prodHostName ]
-            // applicationIdSuffix '.prod'
-            versionNameSuffix '-prod'
+            dimension = 'env'
+            manifestPlaceholders += [ hostName:constants.prodHostName ]
+            // applicationIdSuffix = '.prod'
+            versionNameSuffix = '-prod'
             if (keyPropertiesFile.exists()) {
-                signingConfig signingConfigs.prod
+                signingConfig = signingConfigs.prod
             }
         }
     }
@@ -171,7 +163,7 @@ flutter {
 dependencies {
     implementation 'androidx.multidex:multidex:2.0.1'
     // Source - https://github.com/flutter/flutter/tree/main/packages/integration_test#android-device-testing
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }

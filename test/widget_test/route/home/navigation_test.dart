@@ -41,15 +41,12 @@ void main() {
       expect(find.byType(HomeScreen), findsOneWidget);
     });
 
-    // TODO(hrishikesh-kadam): pumpAndSettle timed out
-    // Breaking ^go_router-12.1.1
-    // https://github.com/flutter/packages/pull/5718
     testWidgets('Https URL with no path, trailing slash', (tester) async {
       tester.platformDispatcher.defaultRouteNameTestValue =
           'https://domain.com/';
       await pumpApp(tester);
       tester.platformDispatcher.clearDefaultRouteNameTestValue();
       expect(find.byType(HomeScreen), findsOneWidget);
-    }, skip: true);
+    });
   });
 }

@@ -52,19 +52,20 @@ IOS_OUT_FILES=(
 
 for ((i=0; i < ${#FIREBASE_PROJECTS[@]}; i++)); do
   dart pub global run flutterfire_cli:flutterfire configure \
-    --project="${FIREBASE_PROJECTS[i]}" \
-    --out="${OPTIONS_DART_FILES[i]}" \
+    --project "${FIREBASE_PROJECTS[i]}" \
+    --out "${OPTIONS_DART_FILES[i]}" \
     --yes \
-    --platforms="${PLATFORMS[i]}" \
-    --android-package-name="${ANDROID_APP_IDS[i]}" \
-    --android-out="${ANDROID_OUT_FILES[i]}" \
-    --ios-bundle-id="${APPLE_BUNDLE_IDS[i]}" \
-    --ios-build-config="${IOS_BUILD_CONFIGS[i]}" \
-    --ios-out="${IOS_OUT_FILES[i]}"
+    --platforms "${PLATFORMS[i]}" \
+    --android-package-name "${ANDROID_APP_IDS[i]}" \
+    --android-out "${ANDROID_OUT_FILES[i]}" \
+    --ios-bundle-id "${APPLE_BUNDLE_IDS[i]}" \
+    --ios-build-config "${IOS_BUILD_CONFIGS[i]}" \
+    --ios-out "${IOS_OUT_FILES[i]}"
+  dart format "${OPTIONS_DART_FILES[i]}"
 done
 
 # jq . file.json | sponge file.json
-# Check if sponge is available on Git Bash for Windows
+# TODO(hrishikesh-kadam): Check if sponge is available on Git Bash for Windows
 cp firebase.json firebase.json.tmp && \
   jq . firebase.json.tmp > firebase.json && \
   rm firebase.json.tmp

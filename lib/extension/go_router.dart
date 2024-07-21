@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 
 import 'package:go_router/go_router.dart';
 import 'package:hrk_batteries/hrk_batteries.dart';
@@ -22,9 +23,17 @@ extension GoRouterExt on GoRouter {
 
   void topOrHomeRoute() {
     if (canPop()) {
-      do {
-        pop();
-      } while (canPop());
+      pop();
+      void addPostFrameCallbackForCanPop() {
+        SchedulerBinding.instance.addPostFrameCallback((_) {
+          if (canPop()) {
+            pop();
+            addPostFrameCallbackForCanPop();
+          }
+        });
+      }
+
+      addPostFrameCallbackForCanPop();
     } else {
       go(HomeRoute.uri.path);
     }

@@ -32,13 +32,6 @@
 
   <title>space_data_explorer</title>
   <link rel="manifest" href="manifest.json">
-
-  <script>
-    // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = null;
-  </script>
-  <!-- This script adds the flutter initialization JS code -->
-  <script src="flutter.js" defer></script>
 </head>
 
 <body>
@@ -110,27 +103,27 @@
     <img src="icons/Icon-192.png" alt="Loading indicator..." />
   </div>
   <script>
-    window.addEventListener('load', function (ev) {
-      let loading = document.querySelector('#loading');
-      // Download main.dart.js
-      _flutter.loader.loadEntrypoint({
-        serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
-        },
-        onEntrypointLoaded: async function (engineInitializer) {
-          loading.classList.add('main_done');
-          let appRunner = await engineInitializer.initializeEngine({
-            useColorEmoji: true,
-          });
-          loading.classList.add('init_done');
-          await appRunner.runApp();
-          // Wait a few milliseconds so users can see the "zooooom" animation
-          // before getting rid of the "loading" div.
-          window.setTimeout(function () {
-            loading.remove();
-          }, 200);
-        }
-      });
+    {{flutter_js}}
+    {{flutter_build_config}}
+
+    _flutter.loader.load({
+      serviceWorkerSettings: {
+        serviceWorkerVersion: {{flutter_service_worker_version}},
+      },
+      onEntrypointLoaded: async function (engineInitializer) {
+        const loading = document.querySelector('#loading');
+        loading.classList.add('main_done');
+        const appRunner = await engineInitializer.initializeEngine({
+          useColorEmoji: true,
+        });
+        loading.classList.add('init_done');
+        await appRunner.runApp();
+        // Wait a few milliseconds so users can see the "zooooom" animation
+        // before getting rid of the "loading" div.
+        window.setTimeout(function () {
+          loading.remove();
+        }, 200);
+      }
     });
   </script>
 </body>

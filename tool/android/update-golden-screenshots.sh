@@ -15,9 +15,9 @@ $(print_in_red "Missing argument \$1 FLAVOR_ENV dev / stag / prod.")}
 source ./tool/constants.sh
 
 AVD_NAMES=(
-  "Pixel_8_API_35"
-  "Nexus_7_API_35"
-  "Nexus_10_API_35"
+  "Pixel_8_API_34"
+  "Nexus_7_API_34"
+  "Nexus_10_API_34"
 )
 DEVICE_NAMES=(
   "pixel_8"
