@@ -40,7 +40,7 @@ ROLE=${1//--}
 echo "Checking Pre-requisite"
 
 check_command_on_path flutter
-if ! (export -p | grep -q "declare -x FLUTTER_ROOT=") &> /dev/null; then
+if ! export -p | grep -q "declare -x FLUTTER_ROOT="; then
   log_error_with_exit "FLUTTER_ROOT exported variable not found"
 fi
 
@@ -153,7 +153,7 @@ if [[ ! -x $(command -v lcov) ]]; then
 fi
 
 if [[ $(uname -s) =~ ^"Darwin" ]]; then
-  if ! (diff --version | grep -q "diff (GNU diffutils) 3") &> /dev/null; then
+  if ! diff --version | grep -q "diff (GNU diffutils) 3"; then
     brew install diffutils
     diff --version
   fi
@@ -191,7 +191,7 @@ if [[ ! -x $(command -v yq) ]]; then
   yq --version
 fi
 
-if ! (export -p | grep -q "declare -x ANDROID_HOME=") &> /dev/null; then
+if ! export -p | grep -q "declare -x ANDROID_HOME="; then
   log_error_with_exit "ANDROID_HOME exported variable not found"
 fi
 
@@ -229,8 +229,12 @@ if [[ $ROLE == "contributor" || $ROLE == "member" ]]; then
   fi
 fi
 
-# TODO(hrishikesh-kadam): -q for grep turning the if expression true when running script
-if ! (dart pub global list | grep "flutterfire_cli") &> /dev/null; then
+# Bug in grep (BSD grep, GNU compatible) 2.6.0-FreeBSD
+# -q option requires using /dev/stdin
+# if ! dart pub global list | grep -q "flutterfire_cli" /dev/stdin; then
+# Also following prints single dot
+# if ! dart pub global list | grep -q "flutterfire_cli"; then
+if ! dart pub global list | grep "flutterfire_cli" &> /dev/null; then
   dart pub global activate flutterfire_cli
   dart pub global run flutterfire_cli:flutterfire --version
 fi
