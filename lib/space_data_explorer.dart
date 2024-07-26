@@ -18,7 +18,7 @@ import 'route/page_not_found/page_not_found_route.dart';
 import 'route/settings/bloc/settings_bloc.dart';
 import 'route/settings/bloc/settings_state.dart';
 import 'route/settings/locale.dart';
-import 'route/settings/theme_data.dart';
+import 'route/settings/theme/theme_data.dart';
 import 'widgets/directionality_widget.dart';
 
 class SpaceDataExplorerApp extends StatelessWidget {

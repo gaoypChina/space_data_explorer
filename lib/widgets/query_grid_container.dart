@@ -22,10 +22,7 @@ class QueryItemContainer extends StatelessWidget {
         borderRadius: const BorderRadius.all(Radius.circular(
           Dimensions.containerRadius,
         )),
-        // TODO(hrishikesh-kadam): Change this to some surfaceContainer
-        // once they are available in stable channel.
-        // ignore: deprecated_member_use
-        color: Theme.of(context).colorScheme.surfaceVariant,
+        color: Theme.of(context).colorScheme.surfaceContainer,
       ),
       padding: const EdgeInsets.all(Dimensions.bodyItemPadding),
       margin: const EdgeInsets.all(Dimensions.bodyItemMargin),

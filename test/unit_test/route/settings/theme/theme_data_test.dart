@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:space_data_explorer/route/settings/theme_data.dart';
-import '../../../src/globals.dart';
+import 'package:space_data_explorer/route/settings/theme/theme_data.dart';
+import '../../../../src/globals.dart';
 
 void main() {
-  group('ThemeDataJsonConverter Unit Test', () {
+  group('$ThemeDataJsonConverter Unit Test', () {
     const converter = ThemeDataJsonConverter();
 
     void testConverter(ThemeData? themeData, String? themeName) {

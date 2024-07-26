@@ -5,6 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hrk_logging/hrk_logging.dart';
 import 'package:hrk_nasa_apis/hrk_nasa_apis.dart';
 
+import '../../config/config.dart';
 import '../../globals.dart';
 import '../../widgets/app_bar.dart';
 import '../../widgets/radio_settings_tile.dart';
@@ -12,7 +13,12 @@ import 'bloc/settings_bloc.dart';
 import 'bloc/settings_state.dart';
 import 'date_format_pattern.dart';
 import 'locale.dart';
-import 'theme_data.dart';
+import 'theme/basic_theme.dart';
+import 'theme/custom_theme.dart';
+import 'theme/flex_theme.dart';
+import 'theme/space_theme.dart';
+import 'theme/stock_theme.dart';
+import 'theme/theme_data.dart';
 import 'time_format_pattern.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -33,11 +39,24 @@ class SettingsScreen extends StatelessWidget {
     ThemeDataExt.system,
     ThemeDataExt.light,
     ThemeDataExt.dark,
-    if (kDebugMode) ThemeDataExt.space,
-    if (kDebugMode) ThemeDataExt.flexThemeDataLight,
-    if (kDebugMode) ThemeDataExt.flexThemeDataDark,
-    if (kDebugMode) ThemeDataExt.themeDataLight,
-    if (kDebugMode) ThemeDataExt.themeDataDark,
+    if (flavorEnv == FlavorEnv.dev || flavorEnv == FlavorEnv.unflavored)
+      SpaceTheme.themeData,
+    if (flavorEnv == FlavorEnv.dev || flavorEnv == FlavorEnv.unflavored)
+      StockTheme.stockThemeDataLight,
+    if (flavorEnv == FlavorEnv.dev || flavorEnv == FlavorEnv.unflavored)
+      StockTheme.stockThemeDataDark,
+    if (flavorEnv == FlavorEnv.dev || flavorEnv == FlavorEnv.unflavored)
+      BasicTheme.themeDataLight,
+    if (flavorEnv == FlavorEnv.dev || flavorEnv == FlavorEnv.unflavored)
+      BasicTheme.themeDataDark,
+    if (flavorEnv == FlavorEnv.dev || flavorEnv == FlavorEnv.unflavored)
+      CustomTheme.themeDataLight,
+    if (flavorEnv == FlavorEnv.dev || flavorEnv == FlavorEnv.unflavored)
+      CustomTheme.themeDataDark,
+    if (flavorEnv == FlavorEnv.dev || flavorEnv == FlavorEnv.unflavored)
+      FlexTheme.themeDataLight,
+    if (flavorEnv == FlavorEnv.dev || flavorEnv == FlavorEnv.unflavored)
+      FlexTheme.themeDataDark,
   };
   static const String localeTileKeyPrefix = '${keyPrefix}locale_tile_';
   static const Key localeTileKey = Key('${localeTileKeyPrefix}key');

@@ -5,7 +5,7 @@ import 'package:hrk_batteries/hrk_batteries.dart';
 
 import '../../../helper/helper.dart';
 import '../date_format_pattern.dart';
-import '../theme_data.dart';
+import '../theme/theme_data.dart';
 import '../time_format_pattern.dart';
 
 part 'settings_state.freezed.dart';

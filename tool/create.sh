@@ -9,8 +9,14 @@ fi
 flutter create . --org "dev.hrishikesh_kadam.flutter"
 ./tool/delete-template-created.sh
 
-if ! flutter --version | grep "channel stable"; then
+if ! (flutter --version | grep -q "channel stable") &> /dev/null; then
   flutter pub upgrade
+  if [[ $(uname -s) =~ ^"Darwin" ]]; then
+    flutter precache --ios
+    pushd ./ios &> /dev/null
+    pod update
+    popd &> /dev/null
+  fi
 fi
 
 # For Golden File Test

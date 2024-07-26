@@ -1,3 +1,7 @@
+# 1.1.0
+
+- Make themes more aligned with Material Design 3
+
 # 1.0.0
 
 - Fix Settings toggle

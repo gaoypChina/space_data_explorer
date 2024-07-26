@@ -112,6 +112,7 @@ class NasaScreen extends StatelessWidget {
   }
 
   Widget _getSsdCneos({required BuildContext context}) {
+    final themeData = Theme.of(context);
     return SliverPadding(
       padding: const EdgeInsets.symmetric(
         horizontal: Dimensions.pageMarginHorizontal,
@@ -122,18 +123,20 @@ class NasaScreen extends StatelessWidget {
           children: [
             Text(
               '${Labels.ssdCneos}:',
-              style: Theme.of(context).textTheme.titleLarge,
+              style: themeData.textTheme.titleLarge,
             ),
             const SizedBox(height: Dimensions.bodyItemPadding),
             Link(
               uri: CadRoute.uri,
               builder: (context, followLink) {
-                return FilledButton.tonal(
+                return FilledButton(
                   key: cadButtonKey,
                   child: Text(
                     Labels.sbdbCloseApproachData,
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.bodyMedium,
+                    style: themeData.textTheme.bodyMedium?.copyWith(
+                      color: themeData.colorScheme.onPrimary,
+                    ),
                   ),
                   onPressed: () {
                     CadRoute($extra: getRouteExtraMap()).go(context);
@@ -147,12 +150,14 @@ class NasaScreen extends StatelessWidget {
               Link(
                 uri: PageNotFoundRoute.nonExistingUri,
                 builder: (context, followLink) {
-                  return FilledButton.tonal(
+                  return FilledButton(
                     key: nonExistingPathButtonKey,
                     child: Text(
                       PageNotFoundRoute.nonExistingUri.path,
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.bodyMedium,
+                      style: themeData.textTheme.bodyMedium?.copyWith(
+                        color: themeData.colorScheme.onPrimary,
+                      ),
                     ),
                     onPressed: () {
                       context.go(

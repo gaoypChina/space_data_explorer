@@ -255,7 +255,9 @@ class CadScreen extends StatelessWidget {
                 label: Text(
                   l10n.search,
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).primaryTextTheme.bodyMedium,
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        color: Theme.of(context).colorScheme.onPrimary,
+                      ),
                 ),
                 networkState: state,
                 onPressed: () async {

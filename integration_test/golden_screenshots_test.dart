@@ -3,7 +3,7 @@ import 'package:hrk_flutter_test_batteries/hrk_flutter_test_batteries.dart';
 import 'package:integration_test/integration_test.dart';
 
 import 'package:space_data_explorer/main.dart' as app;
-import 'package:space_data_explorer/route/settings/theme_data.dart';
+import 'package:space_data_explorer/route/settings/theme/theme_data.dart';
 import '../test/src/globals.dart';
 import '../test/src/helper/helper.dart';
 import '../test/src/nasa/route/nasa_route.dart';

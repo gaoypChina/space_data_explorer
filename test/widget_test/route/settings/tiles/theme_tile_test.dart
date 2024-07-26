@@ -7,7 +7,7 @@ import 'package:hrk_flutter_test_batteries/hrk_flutter_test_batteries.dart';
 import 'package:space_data_explorer/route/settings/bloc/settings_bloc.dart';
 import 'package:space_data_explorer/route/settings/bloc/settings_state.dart';
 import 'package:space_data_explorer/route/settings/settings_screen.dart';
-import 'package:space_data_explorer/route/settings/theme_data.dart';
+import 'package:space_data_explorer/route/settings/theme/theme_data.dart';
 import '../../../../src/globals.dart';
 import '../../../../src/route/settings/settings_route.dart';
 import '../../../../src/route/settings/tiles/theme_data_tile.dart';
