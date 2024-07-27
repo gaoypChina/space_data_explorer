@@ -36,7 +36,7 @@ jobs:
         ref: [ stable ]
         experimental: [ false ]
         include:
-          - runner: ubuntu-latest
+          - runner: macos-latest
             ref: beta
             experimental: false
           - runner: windows-latest
