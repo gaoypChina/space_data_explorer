@@ -78,16 +78,18 @@ double getLargestTextWidth({
   required BuildContext context,
   required Set<String> textSet,
   TextStyle? style,
-  double? textScaleFactor,
+  TextScaler? textScaler,
 }) {
-  textScaleFactor ??= View.of(context).platformDispatcher.textScaleFactor;
+  textScaler ??= TextScaler.linear(
+    View.of(context).platformDispatcher.textScaleFactor,
+  );
   double largestWidth = 0;
   for (final text in textSet) {
     final TextPainter textPainter = getTextPainterLaidout(
       context: context,
       text: text,
       style: style,
-      textScaleFactor: textScaleFactor,
+      textScaler: textScaler,
     );
     if (textPainter.size.width > largestWidth) {
       largestWidth = textPainter.size.width;
@@ -101,15 +103,15 @@ TextPainter getTextPainterLaidout({
   required BuildContext context,
   required String text,
   TextStyle? style,
-  double? textScaleFactor,
+  TextScaler? textScaler,
 }) {
-  textScaleFactor ??= View.of(context).platformDispatcher.textScaleFactor;
+  textScaler ??= TextScaler.linear(
+    View.of(context).platformDispatcher.textScaleFactor,
+  );
   final TextPainter textPainter = TextPainter(
     text: TextSpan(text: text, style: style),
     textDirection: TextDirection.ltr,
-    // TODO(hrishikesh-kadam): Use TextScaler once it is in stable
-    // ignore: deprecated_member_use
-    textScaleFactor: textScaleFactor,
+    textScaler: textScaler,
   );
   textPainter.layout();
   return textPainter;
