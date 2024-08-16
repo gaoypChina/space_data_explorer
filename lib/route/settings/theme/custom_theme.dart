@@ -52,7 +52,7 @@ class CustomTheme {
       primary: Color(_dynamicScheme.primaryPalette.get(50)), // 40
       onPrimary: Color(_dynamicScheme.primaryPalette.get(100)),
       primaryContainer: Color(_dynamicScheme.primaryPalette.get(84)), // 90
-      onPrimaryContainer: Color(_dynamicScheme.primaryPalette.get(10)),
+      onPrimaryContainer: Color(_dynamicScheme.primaryPalette.get(30)),
       primaryFixed: Color(_dynamicScheme.primaryPalette.get(90)),
       primaryFixedDim: Color(_dynamicScheme.primaryPalette.get(80)),
       onPrimaryFixed: Color(_dynamicScheme.primaryPalette.get(10)),
@@ -60,7 +60,7 @@ class CustomTheme {
       secondary: Color(_dynamicScheme.secondaryPalette.get(50)), // 40
       onSecondary: Color(_dynamicScheme.secondaryPalette.get(100)),
       secondaryContainer: Color(_dynamicScheme.secondaryPalette.get(84)), // 90
-      onSecondaryContainer: Color(_dynamicScheme.secondaryPalette.get(10)),
+      onSecondaryContainer: Color(_dynamicScheme.secondaryPalette.get(30)),
       secondaryFixed: Color(_dynamicScheme.secondaryPalette.get(90)),
       secondaryFixedDim: Color(_dynamicScheme.secondaryPalette.get(80)),
       onSecondaryFixed: Color(_dynamicScheme.secondaryPalette.get(10)),
@@ -68,7 +68,7 @@ class CustomTheme {
       tertiary: Color(_dynamicScheme.tertiaryPalette.get(50)), // 40
       onTertiary: Color(_dynamicScheme.tertiaryPalette.get(100)),
       tertiaryContainer: Color(_dynamicScheme.tertiaryPalette.get(84)), // 90
-      onTertiaryContainer: Color(_dynamicScheme.tertiaryPalette.get(10)),
+      onTertiaryContainer: Color(_dynamicScheme.tertiaryPalette.get(30)),
       tertiaryFixed: Color(_dynamicScheme.tertiaryPalette.get(90)),
       tertiaryFixedDim: Color(_dynamicScheme.tertiaryPalette.get(80)),
       onTertiaryFixed: Color(_dynamicScheme.tertiaryPalette.get(10)),
@@ -76,7 +76,7 @@ class CustomTheme {
       error: Color(_dynamicScheme.errorPalette.get(50)), // 40
       onError: Color(_dynamicScheme.errorPalette.get(100)),
       errorContainer: Color(_dynamicScheme.errorPalette.get(84)), // 90
-      onErrorContainer: Color(_dynamicScheme.errorPalette.get(10)),
+      onErrorContainer: Color(_dynamicScheme.errorPalette.get(30)),
       outline: Color(_dynamicScheme.neutralVariantPalette.get(50)),
       outlineVariant: Color(_dynamicScheme.neutralVariantPalette.get(80)),
       surface: Color(_dynamicScheme.neutralPalette.get(98)),
