@@ -1,5 +1,8 @@
+// ignore_for_file: directives_ordering
+
 import 'package:flutter/material.dart';
 
+import 'package:checks/checks.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hrk_flutter_test_batteries/hrk_flutter_test_batteries.dart';
 
@@ -8,6 +11,7 @@ import 'package:space_data_explorer/nasa/cad/cad_route.dart';
 import 'package:space_data_explorer/nasa/cad/cad_screen.dart';
 import 'package:space_data_explorer/route/settings/date_format_pattern.dart';
 import 'package:space_data_explorer/widgets/date_filter_widget.dart';
+import '../../../../../src/extension/custom_checks.dart';
 import '../../../../../src/globals.dart';
 import '../../../../../src/nasa/cad/cad_route.dart';
 import '../../../../../src/nasa/cad/query/date_filter.dart';
@@ -74,10 +78,10 @@ void main() {
       await tapBackButton(tester);
       String minDateAfterString = tester.widget<Text>(minDateFinder).data!;
       String maxDateAfterString = tester.widget<Text>(maxDateFinder).data!;
-      expect(minDateAfterString != minDateTextDefault, true);
-      expect(maxDateAfterString != maxDateTextDefault, true);
-      expect(minDateBeforeString != minDateAfterString, true);
-      expect(maxDateBeforeString != maxDateAfterString, true);
+      check(minDateAfterString).notEquals(minDateTextDefault);
+      check(maxDateAfterString).notEquals(maxDateTextDefault);
+      check(minDateBeforeString).notEquals(minDateAfterString);
+      check(maxDateBeforeString).notEquals(maxDateAfterString);
     });
 
     testWidgets('disableInputs', (tester) async {

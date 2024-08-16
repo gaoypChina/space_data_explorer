@@ -64,6 +64,7 @@ dev_dependencies:
   firebase_core_platform_interface: ^5.0.0
   firebase_analytics_platform_interface: ^4.2.0
   sentry_dart_plugin: ^2.1.0
+  checks: '>=0.3.0 <1.0.0'
 
 # dependency_overrides:
 #   hrk_batteries:
